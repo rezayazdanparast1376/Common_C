@@ -8,7 +8,7 @@
 #define RASPBERRY_PI_PLATFORM   4
 #define X86_PLATFORM            5
 
-#define IN_USE_PLATFORM         X86_PLATFORM
+#define IN_USE_PLATFORM         STM32_PLATFORM
 
 
 
