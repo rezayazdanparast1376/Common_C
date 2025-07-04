@@ -8,6 +8,10 @@
 #define _Out_
 #define _In_Out_
 
+#define CARRIAR_RETURN  0x0D  //\r
+#define LINE_FEED       0x0A  //\n
+
+
 #define ERR_OK                  0
 #define ERR_INVALID_ARG        -2   // Invalid Argument Error
 #define ERR_NO_IMPLENENTATION  -3   // No implementation Error
