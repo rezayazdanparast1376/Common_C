@@ -9,7 +9,8 @@
 
 
 #if IN_USE_PLATFORM == STM32_PLATFORM
-	#include "usart.h"
+//	#include "usart.h"
+#include "main.h"
 	#define DEBUG_PORT 			huart1
 	extern 	UART_HandleTypeDef 	DEBUG_PORT;
 #endif

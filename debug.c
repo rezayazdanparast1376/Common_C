@@ -5,7 +5,8 @@
 #include "config.h"
 
 #if IN_USE_PLATFORM == STM32_PLATFORM
-	#include "usart.h"
+//	#include "usart.h"
+#include "main.h"
 
 void debug_print(
 	UART_HandleTypeDef* uart_interface,
