@@ -6,12 +6,12 @@
 #include 	"config.h"
 #include	"color.h"
 
-
+#define DEBUG_BUFFER_SIZE 1024
 
 #if IN_USE_PLATFORM == STM32_PLATFORM
 //	#include "usart.h"
 #include "main.h"
-	#define DEBUG_PORT 			huart1
+	#define DEBUG_PORT 			huart2
 	extern 	UART_HandleTypeDef 	DEBUG_PORT;
 #endif
 
@@ -43,10 +43,12 @@
 		Char*				data
 	);
 
+	void _printf(const char *format, ...);
+
 #elif IN_USE_PLATFORM == X86_PLATFORM
-	#define Debug_Info(msg)								printf("%s[FILE: %s - LINE: %d] %s \n", DEBUG_INFO_MSG, __FILE__, __LINE__, msg)
-	#define Debug_Warning(msg)							printf("%s[FILE: %s - LINE: %d] %s \n", DEBUG_WARNING_MSG, __FILE__, __LINE__, msg)
-	#define Debug_Error(msg)							printf("%s[FILE: %s - LINE: %d] %s \n", DEBUG_ERROR_MSG, __FILE__, __LINE__, msg)
+	#define Debug_Info(msg)								_printf("%s[FILE: %s - LINE: %d] %s \n", DEBUG_INFO_MSG, __FILE__, __LINE__, msg)
+	#define Debug_Warning(msg)							_printf("%s[FILE: %s - LINE: %d] %s \n", DEBUG_WARNING_MSG, __FILE__, __LINE__, msg)
+	#define Debug_Error(msg)							_printf("%s[FILE: %s - LINE: %d] %s \n", DEBUG_ERROR_MSG, __FILE__, __LINE__, msg)
 
 	#define Soft_Assert_Ignore(condition, msg)    		do{ if(!condition){ Debug_Error(msg);               } } while(0)
 	
